@@ -5,6 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  * 
+ * An example client class that works with the GameCenter Server
+ * 
  * @author Calvin Bochulak, Conner Dunn, ahmedrashid
  */
 package instastats;
@@ -14,15 +16,20 @@ import client.ClientControl;
 public class InstaStats {
 
 	public InstaStats() {
-		
+	
 	}
 	
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+    	new InstaStats();
+    	
+    	
         ClientControl control = new ClientControl();
+        
         String s = control.search("conner_d23", 2);
+        System.out.println(s);
     }
 
 }

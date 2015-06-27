@@ -22,9 +22,8 @@ public class ClientControl {
 	public static final int PORT = 65535;
 	public static final String ADDRESS = "https://api.instagram.com/v1/";
 	
-	public static final String USERS = "users/";
-	public static final String SEARCH = "search/";
-	public static final String MEDIA = "media/";
+	public static final String
+	public static final String SEARCH = "/search";
 	
 	public static final String ACCESS_CODE = "../secret.txt";
 	public static String code;

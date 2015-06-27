@@ -20,11 +20,9 @@ public class ClientControl {
 		
 	public static final String IP_ADDRESS = "api.instagram.com";
 	public static final int PORT = 65535;
-	public static final String ADDRESS = "https://api.instagram.com/v1/";
-	
-	public static final String USERS = "users/";
-	public static final String SEARCH = "search/";
-	public static final String MEDIA = "media/";
+	public static final String ADDRESS = "https://" + IP_ADDRESS;
+	public static final String GET = "/v1/users";
+	public static final String SEARCH = "/search";
 	
 	public static final String ACCESS_CODE = "../secret.txt";
 	public static String code;
@@ -58,12 +56,7 @@ public class ClientControl {
 		return connect(address);
 	}
 	
-	public static String findRecentPhotos(String query) {
-		String address = String.format("https://api.instagram.com/v1/users/%s/media/recent", query);
-		return connect(address);
-	}
-	
-	public static String findRecentPhotos(String query, String maxID) {
+	public static String findAllPhotos(String query, String maxID) {
 		String address = String.format("https://api.instagram.com/v1/users/%s/media/recent?max_id=%s", query, maxID);
 		return connect(address);
 	}
@@ -119,7 +112,7 @@ public class ClientControl {
 		
 		// DEBUGGING //
 		
-		System.out.println("Client succesfully connected to   : " + path); // Debugging
+		System.out.println("Client succesfully connected to   : " + ADDRESS + path); // Debugging
 		System.out.println("Data To Server: ");
 		System.out.println("Data From Server: " + data);
 		System.out.println("---------------------------------------");
