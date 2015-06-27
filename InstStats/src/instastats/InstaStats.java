@@ -22,17 +22,21 @@ import client.ClientControl;
  */
 public class InstaStats {
 
+	public InstaStats() {
 	
+	}
 	
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+    	new InstaStats();
+    	
+    	
         ClientControl control = new ClientControl();
         
-//        String s = control.search("conner_d23", 2);
-//        System.out.println(s);
-//        System.out.println("hee");
+        String s = control.search("conner_d23", 2);
+        System.out.println(s);
     }
 
 }

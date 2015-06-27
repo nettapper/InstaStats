@@ -8,6 +8,8 @@
 package client;
 
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -22,12 +24,24 @@ public class ClientControl {
 	public static final String GET = "/v1/users";
 	public static final String SEARCH = "/search";
 	
+	public static final String ACCESS_CODE = "secret.txt";
+	public static String code;
+	
 	protected ArrayList<String> paths;
 	protected String userSessionID;
 	
 	public ClientControl() {
-		String code = connect("https://api.instagram.com/oauth/authorize/?client_id=a96aa5d20b7d4622b00a5afcd32db20f&redirect_uri=https://github.com/Notbobbobby&response_type=code");
-		System.out.println(code);
+		String s = this.getClass().getResource("").getPath() + "../secret.txt";
+		System.out.println(s);
+		File infile = new File(s);
+		try {
+			Scanner scan = new Scanner(infile);
+			scan.useDelimiter("\\n");
+			this.code = scan.next();
+			scan.close();
+		} catch (Exception e) { e.printStackTrace(); }
+		
+		
 	}
 	
 	public static String search(String query) {
@@ -35,7 +49,7 @@ public class ClientControl {
 	}
 	
 	public static String search(String query, int count) {
-		String address = String.format("https://api.instagram.com/v1/users/search?q=%s&count=%d", query, count);
+		String address = String.format("https://api.instagram.com/v1/users/search?access_token=%s&q=%s&count=%d", code, query, count);
 		return connect(address);
 	}
 	
