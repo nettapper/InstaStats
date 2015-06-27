@@ -4,3 +4,4 @@
 *.class
 /bin
 secret.txt
+.metadata
