@@ -8,6 +8,8 @@ package instastats;
 /**
  *
  * @author ahmedrashid
+ * @author nettapper
+ * 
  */
 public class InstaStats {
 
